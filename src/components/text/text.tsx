@@ -6,6 +6,7 @@ interface TextProps extends RNTextProps {
 	bold?: boolean,
 	semiBold?: boolean,
 	italic?: boolean,
+	color?: string
 }
 
 export function Text({
@@ -15,11 +16,12 @@ export function Text({
 	bold,
 	italic,
 	semiBold,
+	color = '#000',
 	...rest
 }: TextProps){
 	const fontFamily = getFontFamily(preset,bold, italic, semiBold);
 
-	return <RNText {...rest} style={[$fontSizes[preset], {fontFamily}, style]}>{children}</RNText>;
+	return <RNText {...rest} style={[$fontSizes[preset], {fontFamily,color}, style]}>{children}</RNText>;
 }
 
 type TextVariants = 'headingLarge' | 'headingSmall' | 'headingMedium' | 'paragraphLarge' | 'paragraphSmall' | 'paragraphMedium' | 'paragraphCaption' | 'paragraphCaptionSmall'
