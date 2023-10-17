@@ -22,7 +22,7 @@ export function Button({ title, ...rest }: TouchableOpacityProps) {
 			}}
 			{...rest}
 		>
-			<Text style={{color: colors.grayWhite}}  bold>{title}</Text>
+			<Text color={colors.grayWhite} bold>{title}</Text>
 		</TouchableOpacity>
 	);
 }
