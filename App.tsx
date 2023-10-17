@@ -11,7 +11,7 @@ function App(): JSX.Element{
 			<SafeAreaView>
 				<View style={{paddingHorizontal: 20}}>
 					<Text preset='headingLarge' italic>
-				CoffStack
+						CoffStack
 					</Text>
 					<Button title='Entrar' />
 				</View>
