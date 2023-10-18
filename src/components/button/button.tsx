@@ -5,21 +5,22 @@ import {
 import { Text } from '../text/text';
 import { useTheme } from '@shopify/restyle';
 import { Theme } from '../../theme/theme';
-import { Box } from '../box/box';
+import { TouchableOpacityBox } from '../box/box';
 
 interface TouchableOpacityProps extends TouOpaProps {
     title: string
 }
 
-export function Button({ title, ...rest }: TouchableOpacityProps) {
+export function Button({ title }: TouchableOpacityProps) {
 	const { colors } = useTheme<Theme>();
 
 	return (
-		<Box
+		<TouchableOpacityBox
 			backgroundColor='greenPrimary'
-			paddingHorizontal='s20'
-			paddingVertical='s10'
 			borderRadius='s12'
+			height={50}
+			alignItems='center'
+			justifyContent='center'
 			// style={{
 			// 	paddingHorizontal: 20,
 			// 	paddingVertical: 15,
@@ -30,6 +31,6 @@ export function Button({ title, ...rest }: TouchableOpacityProps) {
 			//{...rest}
 		>
 			<Text color={colors.grayWhite} bold>{title}</Text>
-		</Box>
+		</TouchableOpacityBox>
 	);
 }
