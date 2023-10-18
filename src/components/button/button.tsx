@@ -1,34 +1,25 @@
 import React from 'react';
-import { 
-	TouchableOpacityProps as TouOpaProps 
-} from 'react-native';
 import { Text } from '../text/text';
 import { useTheme } from '@shopify/restyle';
 import { Theme } from '../../theme/theme';
-import { TouchableOpacityBox } from '../box/box';
+import { TouchableOpacityBox, TouchableOpacityBoxProps } from '../box/box';
 
-interface TouchableOpacityProps extends TouOpaProps {
-    title: string
+interface TouchableOpacityProps extends TouchableOpacityBoxProps {
+    title: string,
+	loading?: boolean
 }
 
-export function Button({ title }: TouchableOpacityProps) {
+export function Button({ title,  ...touchableOpacityProps}: TouchableOpacityProps) {
 	const { colors } = useTheme<Theme>();
 
 	return (
 		<TouchableOpacityBox
 			backgroundColor='greenPrimary'
-			borderRadius='s12'
 			height={50}
+			borderRadius='s12'
 			alignItems='center'
 			justifyContent='center'
-			// style={{
-			// 	paddingHorizontal: 20,
-			// 	paddingVertical: 15,
-			// 	backgroundColor: colors.primary,
-			// 	alignItems: 'center',
-			// 	borderRadius: 16	
-			// }}
-			//{...rest}
+			{...touchableOpacityProps}
 		>
 			<Text color={colors.grayWhite} bold>{title}</Text>
 		</TouchableOpacityBox>
