@@ -13,7 +13,7 @@ function App(): JSX.Element{
 					<Text preset='headingLarge' italic>
 						CoffStack
 					</Text>
-					<Button title='Entrar' />
+					<Button loading title='Entrar' />
 				</View>
 			</SafeAreaView>
 		</ThemeProvider>
