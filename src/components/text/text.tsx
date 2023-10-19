@@ -27,7 +27,6 @@ export function Text({
 	return ( 
 		<SRText 
 			{...rest} 
-			color={'backgroundContranst'}
 			style={[$fontSizes[preset], {fontFamily}]}
 		>
 			{children}
