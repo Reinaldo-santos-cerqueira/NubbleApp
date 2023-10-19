@@ -1,7 +1,5 @@
 import React from 'react';
 import { Text } from '../text/text';
-import { useTheme } from '@shopify/restyle';
-import { Theme } from '../../theme/theme';
 import { TouchableOpacityBox, TouchableOpacityBoxProps } from '../box/box';
 
 interface TouchableOpacityProps extends TouchableOpacityBoxProps {
@@ -10,7 +8,6 @@ interface TouchableOpacityProps extends TouchableOpacityBoxProps {
 }
 
 export function Button({ title,  ...touchableOpacityProps}: TouchableOpacityProps) {
-	const { colors } = useTheme<Theme>();
 
 	return (
 		<TouchableOpacityBox
@@ -21,7 +18,12 @@ export function Button({ title,  ...touchableOpacityProps}: TouchableOpacityProp
 			justifyContent='center'
 			{...touchableOpacityProps}
 		>
-			<Text color={colors.grayWhite} bold>{title}</Text>
+			<Text 
+				color={'grayWhite'} 
+				bold
+			>
+				{title}
+			</Text>
 		</TouchableOpacityBox>
 	);
 }
