@@ -1,27 +1,38 @@
+import { createText } from '@shopify/restyle';
 import React from 'react';
-import {Text as RNText, TextProps as RNTextProps,  TextStyle} from 'react-native';
+import {TextStyle} from 'react-native';
+import { Theme } from '../../theme/theme';
 
-interface TextProps extends RNTextProps {
+
+const SRText = createText<Theme>();
+
+type SrTextProps = React.ComponentProps<typeof SRText>
+interface TextProps extends SrTextProps {
 	preset?: TextVariants,
 	bold?: boolean,
 	semiBold?: boolean,
 	italic?: boolean,
-	color?: string
 }
 
 export function Text({
 	children,
 	preset = 'paragraphMedium',
-	style,
 	bold,
 	italic,
 	semiBold,
-	color = '#000',
 	...rest
 }: TextProps){
 	const fontFamily = getFontFamily(preset,bold, italic, semiBold);
 
-	return <RNText {...rest} style={[$fontSizes[preset], {fontFamily,color}, style]}>{children}</RNText>;
+	return ( 
+		<SRText 
+			{...rest} 
+			color={'backgroundContranst'}
+			style={[$fontSizes[preset], {fontFamily}]}
+		>
+			{children}
+		</SRText>
+	);
 }
 
 type TextVariants = 'headingLarge' | 'headingSmall' | 'headingMedium' | 'paragraphLarge' | 'paragraphSmall' | 'paragraphMedium' | 'paragraphCaption' | 'paragraphCaptionSmall'
