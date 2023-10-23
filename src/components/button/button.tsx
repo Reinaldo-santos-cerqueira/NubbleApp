@@ -39,7 +39,7 @@ export function Button(
 			{loading ?
 				<ActivityIndicator color={buttonPreset.content} />
 				: <Text 
-					color={'grayWhite'} 
+					color={buttonPreset.content} 
 					bold
 				>
 					{title}
