@@ -5,8 +5,7 @@ import { Button } from './src/components/button/button';
 import { ThemeProvider } from '@shopify/restyle';
 import { theme } from './src/theme/theme';
 import { Box } from './src/components/box/box';
-import { EyeOff } from './src/components/icons/eyeOff';
-import { EyeOn } from './src/components/icons/eyeOn';
+import { Icon } from './src/components/icon/icon';
 
 function App(): JSX.Element{
 	return(
@@ -17,9 +16,9 @@ function App(): JSX.Element{
 						CoffStack
 					</Text>
 					<Box height={20}/>
-					<EyeOff color='#100'/>
+					<Icon name='eyeOff' color='green' size={50}/>
 					<Box height={20}/>
-					<EyeOn color='#100'/>
+					<Icon name='eyeOn' color='green' size={50}/>
 					<Box height={20}/>
 					<Button preset='primary' title='Entrar' />
 					<Box height={20}/>
