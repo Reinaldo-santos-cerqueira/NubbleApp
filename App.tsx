@@ -3,7 +3,6 @@ import { SafeAreaView, View } from 'react-native';
 import { ThemeProvider } from '@shopify/restyle';
 import { theme } from './src/theme/theme';
 import { Box } from './src/components/box/box';
-import { Icon } from './src/components/icon/icon';
 import { Text } from './src/components/text/text';
 import { Button } from './src/components/button/button';
 import { TextInput } from './src/components/textInput/textInput';
