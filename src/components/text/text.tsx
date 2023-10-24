@@ -71,8 +71,8 @@ function getFontFamily(preset: TextVariants, bold?: boolean, italic?: boolean, s
 		return $fontFamily.regular;
 	}
 }
-  
-const $fontFamily = {
+
+export const $fontFamily = {
 	black: 'Satoshi-Black',
 	blackItalic: 'Satoshi-BlackItalic',
 	bold: 'Satoshi-Bold',
