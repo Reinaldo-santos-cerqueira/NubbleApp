@@ -2,10 +2,10 @@ import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { ThemeProvider } from '@shopify/restyle';
 import { theme } from './src/theme/theme';
-import { Box } from './src/components/box/box';
 import { Text } from './src/components/text/text';
 import { Button } from './src/components/button/button';
 import { TextInput } from './src/components/textInput/textInput';
+import { Icon } from './src/components/icon/icon';
 
 function App(): JSX.Element{
 	return(
@@ -25,18 +25,18 @@ function App(): JSX.Element{
 					>
 						Digite seu e-mail e senha para entrar
 					</Text>
-					<Box mb='s20'>
-						<TextInput 
-							label='E-mail'
-							placeholder='Digite seu email' 
-						/>
-					</Box>
-					<Box>
-						<TextInput 
-							label='Senha'
-							placeholder='Digite sua senha'
-						/>
-					</Box>
+					<TextInput 
+						erroMessage=''
+						label='E-mail'
+						placeholder='Digite seu email' 
+						boxProps={{mb: 's20'}}
+					/>
+					<TextInput 
+						label='Senha'
+						icon={<Icon name='eyeOff' color='gray2' />}
+						placeholder='Digite sua senha'
+						boxProps={{mb: 's10'}}
+					/>
 					<Text color='primary' bold preset='paragraphSmall'>
 						Esqueci minha senha
 					</Text>
