@@ -16,9 +16,9 @@ function App(): JSX.Element{
 						CoffStack
 					</Text>
 					<Box height={20}/>
-					<Icon name='eyeOff' color='green' size={50}/>
+					<Icon name='eyeOff' size={50}/>
 					<Box height={20}/>
-					<Icon name='eyeOn' color='green' size={50}/>
+					<Icon name='eyeOn' size={50}/>
 					<Box height={20}/>
 					<Button preset='primary' title='Entrar' />
 					<Box height={20}/>
