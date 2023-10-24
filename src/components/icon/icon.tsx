@@ -1,16 +1,23 @@
 import React from 'react';
 import { EyeOff } from '../../assets/icons/eyeOff';
 import { EyeOn } from '../../assets/icons/eyeOn';
+import { ThemeColors } from '../../theme/theme';
+import { useAppTheme } from '../../hooks/useAppTheme';
 
-interface Props {
-    name: IconName
-    color: string,
+export interface IconBase {
+	color?: string, 
     size?: number 
 }
+interface Props {
+    name: IconName,
+	color?: ThemeColors,
+	size?: number
+}
 
-export function Icon({name,color,size = 20}: Props) {
+export function Icon({name, color = 'backgroundContranst',size}: Props) {
+	const {colors} = useAppTheme();
 	const SvgIcon = iconRegistry[name];
-	return <SvgIcon color={color} size={size}/>;
+	return <SvgIcon color={colors[color]} size={size}/>;
 }
 
 const iconRegistry = {
