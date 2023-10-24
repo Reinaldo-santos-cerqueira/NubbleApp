@@ -3,47 +3,62 @@ import { Pressable, TextInput as RNTextInput, TextInputProps as RnTextInputProps
 import { Box, BoxProps } from '../box/box';
 import { $fontFamily, Text,$fontSizes } from '../text/text';
 import { useAppTheme } from '../../hooks/useAppTheme';
+import { IconBase } from '../icon/icon';
 
 interface TextInputProps extends RnTextInputProps {
-    label: string
+    label: string,
+	erroMessage?: string,
+	icon?: React.ReactElement<IconBase>;
+	boxProps?: BoxProps
 }
 
-export function TextInput({label,...props}: TextInputProps){
+export function TextInput({label,erroMessage,icon,boxProps,...props}: TextInputProps){
 	const {colors} = useAppTheme();
 	const inputRef = useRef<RNTextInput>(null);
 	function focusInput(){
 		inputRef.current?.focus();
 	}
 	return(
-		<Pressable
-			onPress={focusInput}
-		>
-			<Box>
-				<Text mb={'s4'} preset='paragraphMedium'>{label}</Text>
+		<Box {...boxProps}>
+			<Pressable
+				onPress={focusInput}
+			>
+				<Text mb={'s4' } color='grayBlack' preset='paragraphMedium'>{label}</Text>
 				<Box 
-					{...$textInputContainer}
+					{...$textInputContainer(erroMessage)}
 				>
 					<RNTextInput 
 						ref={inputRef}
 						placeholderTextColor={colors.gray2}
 						{...props} 
 						style={$textInputStyle}
-					/>
+					/> 
+					{icon && <Box ml={'s16'}>{icon}</Box> }
 				</Box>
-			</Box>
-		</Pressable>
+				{
+					erroMessage && <Text color='error' preset='paragraphSmall' bold>{erroMessage}</Text>
+				}
+			</Pressable>
+		</Box>
 	);
 }
 
 const $textInputStyle: TextStyle = {
 	padding: 0,
+	flexGrow: 1,
+	flexShrink: 1,
 	fontFamily: $fontFamily.regular,
+	flexDirection: 'row',
 	...$fontSizes.paragraphMedium
 };
 
-const $textInputContainer: BoxProps = {
-	padding:'s16',
-	borderWidth:1,
-	borderColor:'gray4',
-	borderRadius:'s12'
+const $textInputContainer =(erroMessage = ''): BoxProps =>{
+	return {
+		padding:'s16',
+		borderWidth:1,
+		flexDirection:'row',
+		borderColor:erroMessage !== '' ? 'error' :'gray4',
+		borderRadius:'s12'
+	};
+
 };
