@@ -1,7 +1,5 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
-import { Text } from './src/components/text/text';
-import { Button } from './src/components/button/button';
 import { ThemeProvider } from '@shopify/restyle';
 import { theme } from './src/theme/theme';
 import { Box } from './src/components/box/box';
@@ -12,17 +10,22 @@ function App(): JSX.Element{
 		<ThemeProvider theme={theme}>
 			<SafeAreaView>
 				<View style={{paddingHorizontal: 20}}>
-					<Text preset='headingLarge' italic>
-						CoffStack
-					</Text>
-					<Box height={20}/>
-					<Icon name='eyeOff' size={50}/>
-					<Box height={20}/>
-					<Icon name='eyeOn' size={50}/>
-					<Box height={20}/>
-					<Button preset='primary' title='Entrar' />
-					<Box height={20}/>
-					<Button preset='outline' title='Criar conta' />
+					<Box flexDirection="row">
+						<Icon name="chevronRight" size={50} />
+						<Icon name="heartFill" size={50} color="buttonPrimary" />
+						<Icon name="profile" size={50} />
+						<Icon name="profileFill" size={50} />
+						<Icon name="heart" size={50} />
+						<Icon name="bellOn" color="carrotSecondary" size={50} />
+					</Box>
+					<Box flexDirection="row">
+						<Icon name="newPost" size={50} />
+						<Icon name="camera" size={50} />
+						<Icon name="chat" size={50} />
+						<Icon name="chatOn" color="error" size={50} />
+						<Icon name="flashOff" size={50} />
+						<Icon name="flashOn" size={50} />
+					</Box>
 				</View>
 			</SafeAreaView>
 		</ThemeProvider>
