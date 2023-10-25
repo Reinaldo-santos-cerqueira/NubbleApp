@@ -5,7 +5,7 @@ import { $fontFamily, Text,$fontSizes } from '../text/text';
 import { useAppTheme } from '../../hooks/useAppTheme';
 import { IconBase } from '../icon/icon';
 
-interface TextInputProps extends RnTextInputProps {
+export interface TextInputProps extends RnTextInputProps {
     label: string,
 	erroMessage?: string,
 	icon?: React.ReactElement<IconBase>;
