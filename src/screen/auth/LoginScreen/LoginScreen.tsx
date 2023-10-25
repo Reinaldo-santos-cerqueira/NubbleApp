@@ -11,6 +11,10 @@ type ScreenProps = NativeStackScreenProps<RootStackParams, 'LoginScreen'>
 
 export function LoginScreen({navigation}:ScreenProps) {
 
+	function submitForm() {
+		
+	}
+
 	function navigateSignUpScreen() {
 		navigation.navigate('SignUpScreen');
 	}
@@ -44,7 +48,7 @@ export function LoginScreen({navigation}:ScreenProps) {
 			<Text color='primary' bold preset='paragraphSmall'>
                     Esqueci minha senha
 			</Text>
-			<Button onPress={()=>console.log(1)} mt='s48' preset='primary' title='Entrar' />
+			<Button onPress={submitForm} mt='s48' preset='primary' title='Entrar' />
 			<Button onPress={navigateSignUpScreen} mt='s12' preset='outline' title='Criar conta' />
 		</Screen>
 	);

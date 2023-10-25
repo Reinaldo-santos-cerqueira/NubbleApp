@@ -3,9 +3,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { LoginScreen } from '../screen/auth/LoginScreen/LoginScreen';
 import { SignUpScreen } from '../screen/auth/signUpScreen/signUpScreen';
+import { SuccessScreen } from '../screen/auth/successScreen/successScreen';
 export type RootStackParams = {
 	LoginScreen: undefined,
-	SignUpScreen: undefined
+	SignUpScreen: undefined,
+	SuccessScreen: undefined
 }
 
 export function Router(){
@@ -18,10 +20,11 @@ export function Router(){
 					headerShown: false,
 					fullScreenGestureEnabled: true
 				}} 
-				initialRouteName='LoginScreen'
+				initialRouteName='SuccessScreen'
 			>
 				<Stack.Screen name='LoginScreen' component={LoginScreen}/>
 				<Stack.Screen name='SignUpScreen' component={SignUpScreen}/>
+				<Stack.Screen name='SuccessScreen' component={SuccessScreen}/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
