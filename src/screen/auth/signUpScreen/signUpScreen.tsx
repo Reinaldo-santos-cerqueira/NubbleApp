@@ -6,7 +6,7 @@ import { Button } from '../../../components/button/button';
 import { Icon } from '../../../components/icon/icon';
 export function SignUpScreen(){
 	return(
-		<Screen>
+		<Screen canGoBack textBackButton="Voltar" >
 			<Text bold color='grayBlack' preset='headingLarge' mb='s32'>
                 Criar uma conta
 			</Text>
