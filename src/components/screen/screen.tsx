@@ -6,6 +6,7 @@ import { Icon } from '../icon/icon';
 import { Text } from '../text/text';
 import { ScrollViewContainer, ViewContainer } from './Container';
 import { useAppTheme } from '../../hooks/useAppTheme';
+import { useNavigation } from '@react-navigation/native';
 interface ScreenProps {
 	canGoBack?: boolean;
 	textBackButton?: string;
@@ -15,6 +16,7 @@ interface ScreenProps {
 export function Screen({ children, canGoBack, textBackButton = '',scrollable}: ScreenProps) {
 	const { top,bottom } = useAppSafeArea();
 	const {colors} = useAppTheme();
+	const { goBack } = useNavigation();
 	const Container = scrollable ? ScrollViewContainer : ViewContainer;
 	return (
 		<SafeAreaView>
@@ -31,7 +33,7 @@ export function Screen({ children, canGoBack, textBackButton = '',scrollable}: S
 							canGoBack &&
 							<Pressable onPress={() => console.log('Teste')}>
 								<Box mb={'s24'} flexDirection='row' alignItems='center'>
-									<Icon name='arrowLeft' color='primary' size={20} />
+									<Icon onPress={goBack} name='arrowLeft' color='primary' size={20} />
 									{
 										textBackButton !== ''
 										&&
