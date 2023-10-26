@@ -4,19 +4,30 @@ import { Box } from '../../../components/box/box';
 import { Icon } from '../../../components/icon/icon';
 import { Text } from '../../../components/text/text';
 import { Button } from '../../../components/button/button';
-export function SuccessScreen() {
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParams } from '../../../routes/routes';
+
+type ScreenProps = NativeStackScreenProps<RootStackParams, 'SuccessScreen'>
+
+export function SuccessScreen({route, navigation}:ScreenProps) {	
+
+	function goLogin() {
+		navigation.navigate('LoginScreen');
+	}
+
+	const { content,title,icon, color ,colorCicle } = route.params;
 	return (
 		<Screen>
 			<Box mb='s24'>
-				<Icon name='checkRoundIcon' color='grayWhite' size={48} />
+				<Icon name={icon} color={color} circleColor={colorCicle} size={48} />
 			</Box>
-			<Text mb='s16' preset='headingLarge' bold>
-				Enviamos as instruções para seu e-mail
+			<Text mb='s16' bold preset='headingLarge'>
+				{title}
 			</Text>
 			<Text mb='s40' preset='paragraphLarge'>
-				Clique no link enviado no seu e-mail para recuperar sua senha
+				{content}
 			</Text>
-			<Button preset='primary' title='Voltar ao inicio' />
+			<Button onPress={goLogin} preset='primary' title='Voltar ao inicio' />
 		</Screen>
 	);
 }
