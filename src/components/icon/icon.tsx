@@ -34,7 +34,7 @@ import { MessageRoundIcon } from '../../assets/icons/messageRound';
 
 export interface IconBase {
 	size?: number;
-	color?: ThemeColors;
+	color?: string;
 	circleColor?: string
 }
 
@@ -54,11 +54,11 @@ export function Icon({name, color = 'backgroundContranst', size,onPress,circleCo
 				onPress={onPress}
 				hitSlop={10}
 			>
-				<SVGIcon color={colors[color]} size={size} circleColor={circleColor} />
+				<SVGIcon color={colors[color]} size={size} circleColor={colors[circleColor]} />
 			</Pressable>
 		);
 	}
-	return <SVGIcon color={colors[color]} size={size} />;
+	return <SVGIcon color={colors[color]} size={size}  circleColor={colors[circleColor]} />;
 }
 
 const iconRegistry = {
