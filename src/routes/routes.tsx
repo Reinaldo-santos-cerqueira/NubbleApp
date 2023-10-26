@@ -14,7 +14,7 @@ export type RootStackParams = {
 		content: string;
 		icon: IconName;
 		color: ThemeColors;
-		colorCicle: string
+		colorCicle: ThemeColors;
 	}
 }
 
