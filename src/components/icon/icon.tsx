@@ -30,10 +30,12 @@ import {useAppTheme} from '../../hooks/useAppTheme';
 import {ThemeColors} from '../../theme/theme';
 import { Pressable } from 'react-native';
 import { CheckRoundIcon } from '../../assets/icons/CheckIconRound';
+import { MessageRoundIcon } from '../../assets/icons/messageRound';
 
 export interface IconBase {
 	size?: number;
-	color?: string;
+	color?: ThemeColors;
+	circleColor?: string
 }
 
 interface Props {
@@ -41,8 +43,9 @@ interface Props {
 	color?: ThemeColors;
 	size?: number;
 	onPress?: () => void;
+	circleColor?: ThemeColors
 }
-export function Icon({name, color = 'backgroundContranst', size,onPress}: Props) {
+export function Icon({name, color = 'backgroundContranst', size,onPress,circleColor = 'primary'}: Props) {
 	const {colors} = useAppTheme();
 	const SVGIcon = iconRegistry[name];
 	if(onPress){
@@ -51,7 +54,7 @@ export function Icon({name, color = 'backgroundContranst', size,onPress}: Props)
 				onPress={onPress}
 				hitSlop={10}
 			>
-				<SVGIcon color={colors[color]} size={size} />
+				<SVGIcon color={colors[color]} size={size} circleColor={circleColor} />
 			</Pressable>
 		);
 	}
@@ -86,9 +89,10 @@ const iconRegistry = {
 	search: SearchIcon,
 	settings: SettingsIcon,
 	trash: TrashIcon,
-	checkRoundIcon:CheckRoundIcon
+	checkRoundIcon:CheckRoundIcon,
+	messageRoundIcon:MessageRoundIcon
 };
 
 type IconType = typeof iconRegistry;
 
-type IconName = keyof IconType;
+export type IconName = keyof IconType;

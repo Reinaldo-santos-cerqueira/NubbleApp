@@ -2,7 +2,7 @@ import React from 'react';
 import {Svg, Path} from 'react-native-svg';
 import { IconBase } from '../../components/icon/icon';
 
-export function MessageIcon({size = 20, color = 'black'}: IconBase) {
+export function MessageIcon({size = 20, color = 'grayBlack'}: IconBase) {
 	return (
 		<Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
 			<Path
