@@ -6,9 +6,9 @@ interface Props{
     backgroundColor: string
 }
 export function ScrollViewContainer({children,backgroundColor}: Props) {
-	return <ScrollView keyboardShouldPersistTaps='handled' style={{backgroundColor}}>{children}</ScrollView>;
+	return <ScrollView keyboardShouldPersistTaps='handled' style={{backgroundColor,height: '100%'}}>{children}</ScrollView>;
 }
 
 export function ViewContainer({children, backgroundColor}: Props) {
-	return <View style={{backgroundColor}}>{children}</View>;
+	return <View style={{backgroundColor,height: '100%'}}>{children}</View>;
 }
