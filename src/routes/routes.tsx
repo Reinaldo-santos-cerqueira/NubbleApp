@@ -4,10 +4,18 @@ import React from 'react';
 import { LoginScreen } from '../screen/auth/LoginScreen/LoginScreen';
 import { SignUpScreen } from '../screen/auth/signUpScreen/signUpScreen';
 import { SuccessScreen } from '../screen/auth/successScreen/successScreen';
+import { IconName } from '../components/icon/icon';
+import { ThemeColors } from '../theme/theme';
 export type RootStackParams = {
 	LoginScreen: undefined,
 	SignUpScreen: undefined,
-	SuccessScreen: undefined
+	SuccessScreen: {
+		title: string;
+		content: string;
+		icon: IconName;
+		color: ThemeColors;
+		colorCicle: string
+	}
 }
 
 export function Router(){
@@ -20,11 +28,21 @@ export function Router(){
 					headerShown: false,
 					fullScreenGestureEnabled: true
 				}} 
-				initialRouteName='SuccessScreen'
+				initialRouteName='LoginScreen'
+				
 			>
-				<Stack.Screen name='LoginScreen' component={LoginScreen}/>
-				<Stack.Screen name='SignUpScreen' component={SignUpScreen}/>
-				<Stack.Screen name='SuccessScreen' component={SuccessScreen}/>
+				<Stack.Screen 
+					name='LoginScreen' 
+					component={LoginScreen}
+				/>
+				<Stack.Screen 
+					name='SignUpScreen' 
+					component={SignUpScreen}
+				/>
+				<Stack.Screen 
+					name='SuccessScreen' 
+					component={SuccessScreen}
+				/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
