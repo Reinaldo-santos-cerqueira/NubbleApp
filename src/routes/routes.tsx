@@ -6,16 +6,20 @@ import { SignUpScreen } from '../screen/auth/signUpScreen/signUpScreen';
 import { SuccessScreen } from '../screen/auth/successScreen/successScreen';
 import { IconName } from '../components/icon/icon';
 import { ThemeColors } from '../theme/theme';
+import { ForgotPasswrod } from '../screen/auth/forgotPassword/forgotPassword';
 export type RootStackParams = {
 	LoginScreen: undefined,
 	SignUpScreen: undefined,
 	SuccessScreen: {
 		title: string;
 		content: string;
-		icon: IconName;
-		color: ThemeColors;
-		colorCicle: ThemeColors;
-	}
+		icon: {
+			name: IconName;
+			color: ThemeColors;
+			colorCicle: ThemeColors;
+		}
+	},
+	ForgotPassword: undefined
 }
 
 export function Router(){
@@ -38,6 +42,10 @@ export function Router(){
 				<Stack.Screen 
 					name='SignUpScreen' 
 					component={SignUpScreen}
+				/>
+				<Stack.Screen 
+					name='ForgotPassword'
+					component={ForgotPasswrod}
 				/>
 				<Stack.Screen 
 					name='SuccessScreen' 
