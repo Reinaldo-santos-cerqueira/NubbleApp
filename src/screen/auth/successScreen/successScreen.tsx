@@ -15,13 +15,13 @@ export function SuccessScreen({route, navigation}:ScreenProps) {
 		navigation.navigate('LoginScreen');
 	}
 
-	const { content,title,icon, color ,colorCicle } = route.params;
+	const { content,title,icon } = route.params;
 	return (
 		<Screen>
 			<Box mb='s24'>
-				<Icon name={icon} color={color} circleColor={colorCicle} size={48} />
+				<Icon {...icon} />
 			</Box>
-			<Text mb='s16' bold preset='headingLarge'>
+			<Text mb='s16' preset='headingLarge'>
 				{title}
 			</Text>
 			<Text mb='s40' preset='paragraphLarge'>
