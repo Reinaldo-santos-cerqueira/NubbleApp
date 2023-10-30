@@ -54,7 +54,7 @@ function getFontFamily(preset: TextVariants, bold?: boolean, italic?: boolean, s
 		preset === 'headingSmall' ||
 		preset === 'headingMedium'
 	) {
-		return italic ? $fontFamily.boldItalic : $fontFamily.bold;
+		return italic ? $fontFamily.blackItalic : $fontFamily.black;
 	}
 	switch (true) {
 	case bold && italic:
