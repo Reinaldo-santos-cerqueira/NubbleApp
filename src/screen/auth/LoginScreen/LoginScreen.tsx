@@ -24,8 +24,10 @@ export function LoginScreen({ navigation }: ScreenProps) {
 		mode: 'onChange'
 	});
 
-	function submitForm() {
-
+	function submitForm({ email, password }: LoginForm) {
+		console.log('====================================');
+		console.log(email, password );
+		console.log('====================================');
 	}
 
 	function navigateSignUpScreen() {
