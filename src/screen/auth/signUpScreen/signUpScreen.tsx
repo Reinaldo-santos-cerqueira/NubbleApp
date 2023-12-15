@@ -5,18 +5,13 @@ import { Button } from '../../../components/button/button';
 import { useResetNavigation } from '../../../hooks/useResetNavigationSucess';
 import {  useForm } from 'react-hook-form';
 import { FormInputText } from '../../../components/formInputText/formInputText';
-import { FormInputPassword } from '../../../components/formInputPassword/formInputPassword]';
-
-type SignUpForm = {
-	email: string,
-	password: string,
-	username: string,
-	fullName: string
-}
-
+import { FormInputPassword } from '../../../components/formInputPassword/formInputPassword';
+import { SignUpSchema, signUpSchema } from './signUpScreenSchema';
+import {zodResolver} from '@hookform/resolvers/zod';
 export function SignUpScreen(){
 	const {reset} = useResetNavigation();
-	const { control, formState, handleSubmit } = useForm<SignUpForm>({
+	const { control, formState, handleSubmit } = useForm<SignUpSchema>({
+		resolver: zodResolver(signUpSchema),
 		defaultValues: {
 			email: '',
 			password: '',
@@ -44,9 +39,6 @@ export function SignUpScreen(){
 			<FormInputText
 				name={'username'}
 				control={control}
-				rules={{
-					required: 'Username é obrigatório',
-				}}
 				label='Seu username'
 				placeholder='@'
 				boxProps={{ mb: 's16' }}
@@ -54,9 +46,6 @@ export function SignUpScreen(){
 			<FormInputText
 				name={'fullName'}
 				control={control}
-				rules={{
-					required: 'Username é obrigatório',
-				}}
 				label='Nome completo'
 				placeholder='Digite seu nome completo'
 				boxProps={{ mb: 's16' }}
@@ -64,13 +53,6 @@ export function SignUpScreen(){
 			<FormInputText
 				name={'email'}
 				control={control}
-				rules={{
-					required: 'E-mail é obrigatório',
-					pattern: {
-						message: 'E-mail deve ser valido',
-						value: /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/
-					}
-				}}
 				label='E-mail'
 				placeholder='Digite seu email'
 				boxProps={{ mb: 's16' }}
@@ -79,13 +61,6 @@ export function SignUpScreen(){
 			<FormInputPassword
 				name={'password'}
 				control={control}
-				rules={{
-					required: 'Senha é obrigatório',
-					pattern: {
-						message: 'Senha deve ser forte',
-						value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
-					}
-				}}
 				label='Senha'
 				placeholder='Digite sua senha'
 				boxProps={{ mb: 's16' }}
