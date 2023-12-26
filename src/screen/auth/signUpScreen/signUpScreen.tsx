@@ -1,13 +1,9 @@
 import React from 'react';
-import { Screen } from '../../../components/screen/screen';
-import { Text } from '../../../components/text/text';
-import { Button } from '../../../components/button/button';
-import { useResetNavigation } from '../../../hooks/useResetNavigationSucess';
 import {  useForm } from 'react-hook-form';
-import { FormInputText } from '../../../components/formInputText/formInputText';
-import { FormInputPassword } from '../../../components/formInputPassword/formInputPassword';
 import { SignUpSchema, signUpSchema } from './signUpScreenSchema';
 import {zodResolver} from '@hookform/resolvers/zod';
+import { Button, FormInputPassword, FormInputText, Screen, Text } from '@components';
+import { useResetNavigation } from '@hooks';
 export function SignUpScreen(){
 	const {reset} = useResetNavigation();
 	const { control, formState, handleSubmit } = useForm<SignUpSchema>({

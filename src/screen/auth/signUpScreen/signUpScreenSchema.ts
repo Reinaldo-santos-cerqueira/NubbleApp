@@ -1,5 +1,5 @@
+import { stringUtils } from '@utils';
 import {z} from 'zod';
-import { stringUtils } from '../../../utils/stringFunctions';
 
 const userNameRegex = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/gim;
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
