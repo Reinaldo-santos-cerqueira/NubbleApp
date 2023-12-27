@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import {
 	useForm
 } from 'react-hook-form';
@@ -13,29 +11,28 @@ import {
 	Screen,
 	Text
 } from '@components';
-import { RootStackParams } from '@routes';
+import { AuthScreenProps } from '@routes';
 
-type ScreenProps = NativeStackScreenProps<RootStackParams, 'LoginScreen'>
 
 type LoginForm = {
 	email: string,
 	password: string
 }
 
-export function LoginScreen({ navigation }: ScreenProps) {
-	const { control, formState, handleSubmit } = 
-	useForm<LoginSchema>({
-		resolver:zodResolver(loginSchema),
-		defaultValues: {
-			email: '',
-			password: '',
-		},
-		mode: 'onChange'
-	});
+export function LoginScreen({ navigation }: AuthScreenProps<'LoginScreen'>) {
+	const { control, formState, handleSubmit } =
+		useForm<LoginSchema>({
+			resolver: zodResolver(loginSchema),
+			defaultValues: {
+				email: '',
+				password: '',
+			},
+			mode: 'onChange'
+		});
 
 	function submitForm({ email, password }: LoginForm) {
 		console.log('====================================');
-		console.log(email, password );
+		console.log(email, password);
 		console.log('====================================');
 	}
 
@@ -77,12 +74,12 @@ export function LoginScreen({ navigation }: ScreenProps) {
 			<Text onPress={goForgotPassword} color='primary' bold preset='paragraphSmall'>
 				Esqueci minha senha
 			</Text>
-			<Button 
+			<Button
 				disabled={!formState.isValid}
-				onPress={handleSubmit(submitForm)} 
-				mt='s48' 
-				preset='primary' 
-				title='Entrar' 
+				onPress={handleSubmit(submitForm)}
+				mt='s48'
+				preset='primary'
+				title='Entrar'
 			/>
 			<Button onPress={navigateSignUpScreen} mt='s12' preset='outline' title='Criar conta' />
 		</Screen>

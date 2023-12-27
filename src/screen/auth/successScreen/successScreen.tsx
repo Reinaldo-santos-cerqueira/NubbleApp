@@ -1,17 +1,14 @@
 import React from 'react';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Box, Button, Icon, Screen, Text } from '@components';
-import { RootStackParams } from '@routes';
+import { AuthScreenProps } from '@routes';
 
-type ScreenProps = NativeStackScreenProps<RootStackParams, 'SuccessScreen'>
-
-export function SuccessScreen({route, navigation}:ScreenProps) {	
+export function SuccessScreen({ route, navigation }: AuthScreenProps<'SuccessScreen'>) {
 
 	function goLogin() {
 		navigation.navigate('LoginScreen');
 	}
 
-	const { content,title,icon } = route.params;
+	const { content, title, icon } = route.params;
 	return (
 		<Screen>
 			<Box mb='s24'>
