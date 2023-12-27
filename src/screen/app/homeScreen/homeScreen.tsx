@@ -11,7 +11,7 @@ export function HomeScreen({ navigation }: AppScreenProps<'HomeScreen'>): React.
 	return (
 		<Screen>
 			<Text preset='headingLarge'>
-				Home Screen
+				Home Screens
 			</Text>
 			<Button title='Settings' onPress={goSettings} />
 		</Screen>
