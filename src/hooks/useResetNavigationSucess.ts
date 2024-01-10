@@ -1,37 +1,20 @@
 import { useNavigation } from '@react-navigation/native';
-import { ThemeColors } from '../theme/theme';
+import { AuthStackParams } from '@routes';
 
-interface Props{
-    title: string,
-    content: string;
-    icon: {
-        name: string;
-        color: ThemeColors;
-        circleColor: ThemeColors
-    }
-}
 
-export function useResetNavigation(){
+export function useResetNavigation() {
 	const navigation = useNavigation();
 
-	function reset({
-		title,
-		content,
-		icon
-	}: Props){
+	function reset(params: AuthStackParams['SuccessScreen']) {
 		navigation.reset({
 			index: 1,
-			routes:[
+			routes: [
 				{
 					name: 'LoginScreen'
 				},
 				{
 					name: 'SuccessScreen',
-					params: {
-						title,
-						content,
-						icon: icon
-					}
+					params
 				}
 			]
 		});
