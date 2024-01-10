@@ -1,36 +1,38 @@
 import React from 'react';
-import {  useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { SignUpSchema, signUpSchema } from './signUpScreenSchema';
-import {zodResolver} from '@hookform/resolvers/zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, FormInputPassword, FormInputText, Screen, Text } from '@components';
 import { useResetNavigation } from '@hooks';
-export function SignUpScreen(){
-	const {reset} = useResetNavigation();
+
+export function SignUpScreen() {
+	const { reset } = useResetNavigation();
 	const { control, formState, handleSubmit } = useForm<SignUpSchema>({
 		resolver: zodResolver(signUpSchema),
 		defaultValues: {
 			email: '',
 			password: '',
 			username: '',
-			fullName: ''	
+			fullName: ''
 		},
 		mode: 'onChange'
 	});
+
 	const submitForm = () => {
 		reset({
 			title: 'Sua conta foi criada com sucesso!',
 			content: 'Agora é só fazer login na nossa plataforma',
 			icon: {
-				name:'checkRoundIcon',
+				name: 'checkRoundIcon',
 				color: 'grayWhite',
-				circleColor: 'primary'
+				colorCicle: 'primary'
 			}
 		});
 	};
-	return(
+	return (
 		<Screen canGoBack scrollable textBackButton="Voltar" >
 			<Text bold color='grayBlack' preset='headingLarge' mb='s32'>
-                Criar uma conta
+				Criar uma conta
 			</Text>
 			<FormInputText
 				name={'username'}
@@ -53,7 +55,7 @@ export function SignUpScreen(){
 				placeholder='Digite seu email'
 				boxProps={{ mb: 's16' }}
 			/>
-		
+
 			<FormInputPassword
 				name={'password'}
 				control={control}
@@ -61,10 +63,10 @@ export function SignUpScreen(){
 				placeholder='Digite sua senha'
 				boxProps={{ mb: 's16' }}
 			/>
-			<Button 
+			<Button
 				disabled={!formState.isValid}
 				onPress={handleSubmit(submitForm)}
-				title='Criar minha conta' 
+				title='Criar minha conta'
 				preset='primary'
 			/>
 		</Screen>
