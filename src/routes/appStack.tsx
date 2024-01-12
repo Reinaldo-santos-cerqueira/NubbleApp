@@ -1,9 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HomeScreen, SettingsScreen } from '@screen';
+import { SettingsScreen } from '@screen';
 import React from 'react';
+import { AppTabBottomTabParamsList, AppTabNavigator } from './appTabNavigator';
+import { NavigatorScreenParams } from '@react-navigation/native';
 
 export type AppStackParamsList = {
-	HomeScreen: undefined;
+	AppTabNavigator: NavigatorScreenParams<AppTabBottomTabParamsList>;
 	SettingsScreen: undefined;
 }
 
@@ -17,7 +19,7 @@ export function AppStack(): React.ReactNode {
 				fullScreenGestureEnabled: true
 			}}
 		>
-			<Stack.Screen component={HomeScreen} name={'HomeScreen'} />
+			<Stack.Screen component={AppTabNavigator} name={'AppTabNavigator'} />
 			<Stack.Screen component={SettingsScreen} name={'SettingsScreen'} />
 		</Stack.Navigator>
 
