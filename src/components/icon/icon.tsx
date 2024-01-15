@@ -26,7 +26,7 @@ import { ProfileIcon } from '../../assets/icons/ProfileIcon';
 import { SearchIcon } from '../../assets/icons/SearchIcon';
 import { SettingsIcon } from '../../assets/icons/SettingsIcon';
 import { TrashIcon } from '../../assets/icons/TrashIcon';
-import { ThemeColors } from '../../theme/theme';
+import { ThemeColors } from '@theme';
 import { Pressable } from 'react-native';
 import { CheckRoundIcon } from '../../assets/icons/CheckIconRound';
 import { MessageRoundIcon } from '../../assets/icons/messageRound';

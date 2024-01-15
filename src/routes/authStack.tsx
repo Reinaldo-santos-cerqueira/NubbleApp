@@ -2,7 +2,7 @@ import { IconName } from '@components';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ForgotPasswrod, LoginScreen, SignUpScreen, SuccessScreen } from '@screen';
 import React from 'react';
-import { ThemeColors } from 'src/theme/theme';
+import { ThemeColors } from '@theme';
 
 export type AuthStackParams = {
 	LoginScreen: undefined,
