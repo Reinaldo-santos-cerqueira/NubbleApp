@@ -8,9 +8,11 @@ module.exports = {
 				'@hooks': './src/hooks',
 				'@screen': './src/screen',
 				'@utils': './src/utils',
-				'@routes': './src/routes'
+				'@routes': './src/routes',
+				'@domain': './src/domain',
+				'@theme': './src/theme'
+
 			}
 		}]
 	]
 };
- 
