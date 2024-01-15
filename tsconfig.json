@@ -18,6 +18,12 @@
       ],
       "@routes": [
         "./src/routes"
+      ],
+      "@theme": [
+        "./src/theme"
+      ],
+      "@domain": [
+        "./src/domain"
       ]
     }
   }
