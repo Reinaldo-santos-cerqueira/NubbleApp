@@ -20,15 +20,14 @@ type LoginForm = {
 }
 
 export function LoginScreen({ navigation }: AuthScreenProps<'LoginScreen'>) {
-	const { control, formState, handleSubmit } =
-		useForm<LoginSchema>({
-			resolver: zodResolver(loginSchema),
-			defaultValues: {
-				email: '',
-				password: '',
-			},
-			mode: 'onChange'
-		});
+	const { control, formState, handleSubmit } = useForm<LoginSchema>({
+		resolver: zodResolver(loginSchema),
+		defaultValues: {
+			email: '',
+			password: '',
+		},
+		mode: 'onChange'
+	});
 
 	function submitForm({ email, password }: LoginForm) {
 		console.log('====================================');
