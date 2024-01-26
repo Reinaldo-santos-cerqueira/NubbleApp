@@ -9,3 +9,4 @@ export * from './screen/screen';
 export * from './screen/Container';
 export * from './text/text';
 export * from './textInput/textInput';
+export * from './postItem/postItem';
