@@ -36,6 +36,8 @@ export const theme = createTheme({
 		sucess: palette.greenSuccess,
 		sucessLight: palette.greenSuccessLight,
 
+		marked: palette.carrotSecondary
+
 	},
 	spacing: {
 		s4: 4,
@@ -57,7 +59,7 @@ export const theme = createTheme({
 		s16: 16,
 	},
 	textVariants: {
-		defaults:{}
+		defaults: {}
 	}
 });
 
