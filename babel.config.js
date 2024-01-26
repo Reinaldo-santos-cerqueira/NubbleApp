@@ -10,8 +10,8 @@ module.exports = {
 				'@utils': './src/utils',
 				'@routes': './src/routes',
 				'@domain': './src/domain',
-				'@theme': './src/theme'
-
+				'@theme': './src/theme',
+				'@brand': './src/brand'
 			}
 		}]
 	]
